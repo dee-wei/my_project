@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>西江月-房贷计算</title>
+    <link rel="icon" type="image/ico" href="http://www.alphavisual.cn/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/calculator.css"/>
+</head>
+<body>
+<div class="head">房贷计算器</div>
+<div class="main">
+    <nav>
+        <ul class="wrap">
+            <li style="color:#61b3de;border-bottom: solid 1px #61b3de">商业贷</li>
+            <li>公积金贷</li>
+            <li>组合贷</li>
+            <li>税费计算</li>
+        </ul>
+    </nav>
+    <div class="big-Box">
+        <div class="total_price">
+            <span>房贷总价：</span>
+            <input type="number" value="100" class="Num"/>
+            <span>万元</span>
+        </div>
+        <div class="total_price" id="down_payment">
+            <span>首付比例：</span>
+            <a href="#" id="down_payment_cont">三成(30万)</a>
+            <span ></span>
+        </div>
+        <div class="total_price">
+            <span>贷款总额：</span>
+            <input type="number" value="70" class="loan_ceiling" />
+            <span>万元</span>
+        </div>
+        <div class="total_price">
+            <span>按揭年数：</span>
+            <select id="years" size="1" name="years">
+                <option value="1">1年（12期）</option>
+                <option value="2">2年（24期）</option>
+                <option value="3">3年（36期）</option>
+                <option value="4">4年（48期）</option>
+                <option value="5">5年（60期）</option>
+                <option value="6">6年（72期）</option>
+                <option value="7">7年（84期）</option>
+                <option value="8">8年（96期）</option>
+                <option value="9">9年（108期）</option>
+                <option value="10">10年（120期）</option>
+                <option value="11">11年（132期）</option>
+                <option value="12">12年（144期）</option>
+                <option value="13">13年（156期）</option>
+                <option value="14">14年（168期）</option>
+                <option value="15">15年（180期）</option>
+                <option value="16">16年（192期）</option>
+                <option value="17">17年（204期）</option>
+                <option value="18">18年（216期）</option>
+                <option value="19">19年（228期）</option>
+                <option value="20" selected="selected">20年（240期）</option>
+                <option value="25">25年（300期）</option>
+                <option value="30">30年（360期）</option>
+            </select>
+        </div>
+        <div class="total_price" id="lv">
+            <span>利&nbsp&nbsp&nbsp率：</span>
+            <a href="#" class="lv_cont">4.90%</a>
+            <span></span>
+        </div>
+    </div>
+    <div class="box-zh">
+        <div class="total_price">
+            <span>商业贷款：</span>
+            <input type="number" value="40" class="Num" placeholder="请输入贷款金额"/>
+            <span>万元</span>
+        </div>
+        <div class="total_price">
+            <span>公积金贷款：</span>
+            <input type="number" value="30" class="loan_ceiling" placeholder="请输入贷款金额"/>
+            <span>万元</span>
+        </div>
+        <div class="total_price">
+            <span>按揭年数：</span>
+            <select id="years2" size="1" name="years">
+                <option value="1">1年（12期）</option>
+                <option value="2">2年（24期）</option>
+                <option value="3">3年（36期）</option>
+                <option value="4">4年（48期）</option>
+                <option value="5">5年（60期）</option>
+                <option value="6">6年（72期）</option>
+                <option value="7">7年（84期）</option>
+                <option value="8">8年（96期）</option>
+                <option value="9">9年（108期）</option>
+                <option value="10">10年（120期）</option>
+                <option value="11">11年（132期）</option>
+                <option value="12">12年（144期）</option>
+                <option value="13">13年（156期）</option>
+                <option value="14">14年（168期）</option>
+                <option value="15">15年（180期）</option>
+                <option value="16">16年（192期）</option>
+                <option value="17">17年（204期）</option>
+                <option value="18">18年（216期）</option>
+                <option value="19">19年（228期）</option>
+                <option value="20" selected="selected">20年（240期）</option>
+                <option value="25">25年（300期）</option>
+                <option value="30">30年（360期）</option>
+            </select>
+        </div>
+        <div class="total_price" id="lv1">
+            <span>商业利率：</span>
+            <a href="#" class="lv_cont">4.90%</a>
+        </div>
+        <div class="total_price" id="lv2">
+            <span>公积金利率：</span>
+            <a href="#" class="lv_cont1">3.25%</a>
+        </div>
+    </div>
+    <div class="box-sf">
+        <div class="total_price">
+            <span>建筑面积：</span>
+            <input type="number" value="100" class="Num" placeholder="请输入贷款金额"/>
+            <span>㎡</span>
+        </div>
+        <div class="total_price">
+            <span>面积单价：</span>
+            <input type="number" value="10000" class="loan_ceiling" placeholder="请输入贷款金额"/>
+            <span>元</span>
+        </div>
+        <div class="total_price">
+            <span>房屋性质：</span>
+            <select id="years3" size="1" name="years">
+                <option>普通住宅</option>
+                <option>非普通住宅</option>
+            </select>
+        </div>
+        <div class="total_price">
+            <span>是否唯一：</span>
+            <span class="ck1"><input value="" name="sex" type="radio" style="width:0.5rem;float:left;margin-top:0.4rem;background:#ffffff">是</span>
+            <span class="ck2"><input value="" name="sex" type="radio" style="width:0.5rem;float:left;margin-top:0.4rem;background:#ffffff">否</span>
+        </div>
+    </div>
+    <div class="btn"></div>
+    <div class="detail">
+        <div class="head1">
+            <span>等额本息</span>
+            <span>等额本金</span>
+        </div>
+        <p class="p1">每月还款额固定，所还总利息较多，适合收入稳定者.</p>
+        <p class="p2">每月还款额递减，所还总利息较低，前期还款额较大.</p>
+        <div class="month-pay">
+            <div id="circle1" style="width:200px;height:200px;margin-left:1.5rem;">
+            </div>
+        </div>
+        <div class="details-xin">
+            <p><span>房款总价：</span><span class="total">100</span><span>万元</span></p>
+            <p><span class="dian" style="background:url(img/blue.png) no-repeat left center;background-size:0.34rem 0.34rem">首付金额：</span><span class="total_head">30</span><span>万元</span></p>
+            <p><span style="background:url(img/yellow.png) no-repeat left center;background-size:0.34rem 0.34rem">贷款总额：</span><span class="total_dai">30</span><span>万元</span></p>
+            <p><span style="background:url(img/pink.png) no-repeat left center;background-size:0.34rem 0.34rem">支付利息：</span><span class="pay_more">399800</span><span>元</span></p>
+            <p><span>利率：</span><span class="lilv">4.9%</span><span></span></p>
+            <p><span>首月月供：</span><span class="first_pay">4582</span><span>元/月</span></p>
+            <p class="jian"><span>每月递减：</span><span class="dijian">11.28</span><span>元/月</span></p>
+        </div>
+    </div>
+    <div class="detail1">
+        <div class="head1">
+            <span>等额本息</span>
+            <span>等额本金</span>
+        </div>
+        <p class="p1">每月还款额固定，所还总利息较多，适合收入稳定者.</p>
+        <p class="p2">每月还款额递减，所还总利息较低，前期还款额较大.</p>
+        <div class="month-pay">
+            <div id="circle" style="width:200px;height:200px;margin-left:1.5rem;">
+            </div>
+        </div>
+        <div class="details-xin">
+            <p><span>还款总价：</span><span class="total">1000</span><span>元</span></p>
+            <p><span style="background:url(img/blue.png) no-repeat left center;background-size:0.14rem 0.14rem">贷款总价：</span><span class="total_head">30</span><span>元</span></p>
+            <p><span style="background:url(img/yellow.png) no-repeat left center;background-size:0.14rem 0.14rem">支付利息：</span><span class="total_dai">30</span><span>元</span></p>
+            <p><span>首月月供：</span><span class="pay_more">399800</span><span>元</span></p>
+            <p class="jian" style="display:none"><span>每月递减：</span><span class="dijian">11.28</span><span>元/月</span></p>
+        </div>
+    </div>
+    <div class="detail2">
+        <div class="month-pay">
+            <div id="circle2" style="width:200px;height:200px;margin-left:1.5rem;"></div>
+        </div>
+        <div class="details-xin">
+            <p><span>房款总价：</span><span class="total">1000</span><span>元</span></p>
+            <p><span style="background:url(img/blue.png) no-repeat left center;background-size:0.14rem 0.14rem;background-position: 40% 50%;">公证费：</span><span class="total_head">3000</span><span>元</span></p>
+            <p><span style="width:2.7rem;background:url(img/yellow.png) no-repeat left center;background-size:0.14rem 0.14rem">委托办理产权费：</span><span class="total_dai">3000</span><span>元</span></p>
+            <p><span style="width:2.7rem;background:url(img/orange.png) no-repeat left center;background-size:0.14rem 0.14rem">房屋买卖手续费：</span><span class="pay_more">250</span><span>元</span></p>
+            <p><span style="background:url(img/green.png) no-repeat left center;background-size:0.14rem 0.14rem;background-position: 45% 50%;">契税：</span><span class="pay_more1">15000</span><span>元</span></p>
+            <p><span style="background:url(img/pink.png) no-repeat left center;background-size:0.14rem 0.14rem;background-position: 40% 50%;">印花税：</span><span class="pay_more2">5</span><span>元</span></p>
+        </div>
+    </div>
+</div>
+<div class="box">
+    <div class="total_price">
+        <span>自定义：</span>
+        <input type="number" value="" />
+        <span>%</span>
+        <span>确定</span>
+    </div>
+    <div class="title"> 或者选择常用利率</div>
+    <ul class="wrap1">
+        <li>基准利率</li>
+        <li>7折</li>
+        <li>85折</li>
+        <li>88折</li>
+        <li>9折</li>
+        <li>95折</li>
+        <li>1.1倍</li>
+    </ul>
+</div>
+<div class="box1">
+    <div class="total_price">
+        <span>自定义：</span>
+        <input type="number" value=""/>
+        <span>万元</span>
+        <span>确定</span>
+    </div>
+    <div class="title">
+        或者选择首付比例
+    </div>
+    <ul class="wrap2">
+        <li>一成</li>
+        <li>二成</li>
+        <li>三成</li>
+        <li>四成</li>
+        <li>五成</li>
+        <li>六成</li>
+        <li>七成</li>
+        <li>八成</li>
+        <li>九成</li>
+    </ul>
+</div>
+<div class="box-ZH">
+    <div class="total_price">
+        <span>自定义：</span>
+        <input type="number" value=""/>
+        <span>万元</span>
+        <span>确定</span>
+    </div>
+    <div class="title">
+        或者选择首付比例
+    </div>
+    <ul class="wrap3">
+        <li>基准利率</li>
+        <li>7折</li>
+        <li>85折</li>
+        <li>88折</li>
+        <li>9折</li>
+        <li>95折</li>
+        <li>1.1倍</li>
+    </ul>
+</div>
+<script src="js/rem.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/LoanCalculate.js"></script>
+<script src="js/TaxCalculate.js"></script>
+<script>
+    $(".wrap li").tap(function(){
+        $(".wrap li").css({"color":"#858585","border":"none"})
+        $(this).css({"color":"#61b3de","border-bottom":"solid 1px #61b3de"})
+    })
+    var Num=""
+    $(".wrap li:nth-of-type(1)").tap(function(){
+        Num=1
+        $(".big-Box").show()
+        $(".box-zh").hide()
+        $(".box-sf").hide()
+    })
+    $(".wrap li:nth-of-type(2)").tap(function(){
+        Num=2
+        $(".big-Box").show()
+        $(".box-zh").hide()
+
+        $(".box-sf").hide()
+    })
+    $(".wrap li:nth-of-type(3)").tap(function(){
+        Num=3
+        $(".big-Box").hide()
+        $(".box-zh").show()
+
+        $(".box-sf").hide()
+    })
+    $(".wrap li:nth-of-type(4)").tap(function(){
+        Num=4
+        $(".big-Box").hide()
+        $(".box-zh").hide()
+        $(".box-sf").show()
+    })
+    $("#lv").tap(function(){//利率被点击时候
+        $(".main").hide()
+        $(".box").show()
+    })
+
+    $(".wrap3 li").tap(function(){
+        $(".main").show()
+        $(".box-ZH").hide()
+    })
+    $("#down_payment").tap(function(){
+        $(".main").hide()
+        $(".box1").show()
+    })
+    $(".detail .head1 span:nth-of-type(1)").click(function(){//等额本息
+
+        $(this).css({"background":"#00b1ff","color":"#ffffff"})
+        $(".detail .head1 span:nth-of-type(2)").css({"background":"#ffffff","color":"#00b1ff"})
+        $(".detail .jian").css({"display":"none"})
+        $(".detail .p1").show()
+        $(".detail .p2").hide()
+        var str=$(".lv_cont").text()//年利率
+        var data=str.substring(0,str.indexOf("%"))
+        var opt=""
+//      console.log($("#years option:checked").prop('value'))//还款年数
+        opt=$("#years option:checked").prop('value')
+//      console.log(data/(100*12))
+        first=$(".loan_ceiling").val()*10000*(data/(100*12))*(Math.pow(1+data/(100*12),opt*12))/(Math.pow(data/(100*12)+1,opt*12)-1)
+//      console.log(first)
+        $(".first_pay").html(parseInt(first))//首月月供
+//      console.log($(".Num").val())
+        $(".total").html($(".Num").val())//房贷总价
+//      console.log(shou)
+        $(".detail .total_head").html(L)//首付
+//      console.log($(".loan_ceiling").val())
+        $(".total_dai").html($(".loan_ceiling").val())//贷款数
+//      console.log(parseInt(first*opt))
+//      console.log(parseInt(first)*opt*12-$(".loan_ceiling").val()*10000)
+        $(".pay_more").html(parseInt(first)*opt*12-$(".loan_ceiling").val()*10000)//支付的利息
+        $(".detail .month-gei").html("￥"+$(".detail .first_pay").html())
+        $(".lilv").html($(".lv_cont").html())//利率
+        circle1($(".detail .total_head").html()*10000,$(".detail .total_dai").html()*10000,$(".detail .pay_more").html())
+    })
+    $(".detail .head1 span:nth-of-type(2)").click(function(){//等额本金
+        $(this).css({"background":"#00b1ff","color":"#ffffff"})
+        $(".detail .head1 span:nth-of-type(1)").css({"background":"#ffffff","color":"#00b1ff"})
+        $(".detail .jian").css({"display":"block"})
+        $(".p2").show()
+        $(".p1").hide()
+        var opt=""
+//      console.log($("#years option:checked").prop('value'))//还款年数
+        opt=$("#years option:checked").prop('value')
+//      console.log($(".Num").val())
+        $(".total").html($(".Num").val())//房贷总价
+//      console.log()
+        $(".total_head").html(L)//首付
+//      console.log($(".loan_ceiling").val())
+        $(".total_dai").html($(".loan_ceiling").val())//贷款数
+        $(".lilv").html($(".lv_cont").html())//年利率
+        var str=$(".lv_cont").text()//年利率
+        var data=str.substring(0,str.indexOf("%"))
+//      console.log(data/(100*12))
+//      console.log(CalAverageCapitalComm(opt*12,$(".loan_ceiling").val()*10000,data/(100*12)))
+//      console.log(parseInt(CalAverageCapitalComm(opt*12,$(".loan_ceiling").val()*10000,data/(100*12)).MaxPayment))
+        var quaril=parseInt(CalAverageCapitalComm(opt*12,$(".loan_ceiling").val()*10000,data/(100*12)).Result)
+        var cha=""
+        var cha1=""
+        var cha2=""
+        cha=CalAverageCapitalComm(opt*12,$(".loan_ceiling").val()*10000,data/(100*12)).HouseLoan[0].ReplyInterest
+        cha1=CalAverageCapitalComm(opt*12,$(".loan_ceiling").val()*10000,data/(100*12)).HouseLoan[1].ReplyInterest
+        cha2=parseInt(cha-cha1)
+//      console.log(cha)
+//      console.log(cha1)
+//      console.log(cha2)
+        $(".dijian").html(cha2)
+
+        /*
+         cha=parseInt(CalAverageCapitalComm(opt*12,$(".loan_ceiling").val()*10000,data/(100*12).HouseLoan[0].ReplyInterest))
+         */      console.log($(".detail .first_pay").html())
+        $(".detail .month-gei").html("￥"+parseInt(CalAverageCapitalComm(opt*12,$(".loan_ceiling").val()*10000,data/(100*12)).MaxPayment))
+        $(".pay_more").html(quaril)//支付利息
+        $(".first_pay").html(parseInt(CalAverageCapitalComm(opt*12,$(".loan_ceiling").val()*10000,data/(100*12)).MaxPayment))//首月月供
+        circle1($(".detail .total_head").html()*10000,$(".detail .total_dai").html()*10000,$(".detail .pay_more").html())
+
+    })
+
+    /* $(".loan_ceiling").val($(".Num").val()-$("#down_payment_cont").val())*/ //贷款总额
+
+    var shou=""
+    var L=""
+    $(".btn").click(function(){//计算结果
+        $(".detail .head1 span:nth-of-type(1)").css({"background":"#00b1ff","color":"#ffffff"})
+        $(".detail .head1 span:nth-of-type(2)").css({"background":"#ffffff","color":"#00b1ff"})
+
+        $(".detail").show()
+        //详细信息开始
+        if(Num==1){
+            $(".detail").show()
+            $(".detail1").hide()
+            $(".detail2").hide()
+        }
+        if(Num==2){
+            $(".detail").show()
+            $(".detail1").hide()
+            $(".detail2").hide()
+        }
+        if(Num==3){
+            $(".detail").hide()
+            $(".detail1").show()
+            $(".detail2").hide()
+        }
+        if(Num==4){
+            $(".detail").hide()
+            $(".detail1").hide()
+            $(".detail2").show()
+        }
+
+
+        var first=""
+        /* first=700000*0.0040833*(Math.pow(1+0.0040833,240))/(Math.pow(0.0040833+1,240)-1)*/
+        var str=$(".lv_cont").text()//年利率
+        var data=str.substring(0,str.indexOf("%"))
+//      console.log($("#down_payment_cont").html())
+        L=$("#down_payment_cont").html().substring($("#down_payment_cont").html().indexOf("(")+1,$("#down_payment_cont").html().indexOf("万"))//首付
+//      console.log(L)
+        var opt=""
+//      console.log($("#years option:checked").prop('value'))//还款年数
+        opt=$("#years option:checked").prop('value')
+//      console.log(data/(100*12))
+        first=$(".loan_ceiling").val()*10000*(data/(100*12))*(Math.pow(1+data/(100*12),opt*12))/(Math.pow(data/(100*12)+1,opt*12)-1)
+//      console.log(first)
+        $(".first_pay").html(parseInt(first))//首月月供
+//      console.log($(".Num").val())
+        $(".detail .total").html($(".Num").val())//房贷总价
+//      console.log(shou)
+        $(".detail .total_head").html(L)//首付
+//      console.log($(".loan_ceiling").val())
+        $(".detail .total_dai").html($(".loan_ceiling").val())//贷款数
+//      console.log(parseInt(first*opt))
+//      console.log(parseInt(first)*opt*12-$(".loan_ceiling").val()*10000)
+        $(".detail .pay_more").html(parseInt(first)*opt*12-$(".loan_ceiling").val()*10000)//支付的利息
+        $(".detail .lilv").html($(".lv_cont").html())
+        $(".detail .month-gei").html("￥"+$(".detail .first_pay").html())//月供
+//      console.log($(".box-sf .Num").val()*($(".box-sf .loan_ceiling").val()))
+        $(".detail2 .total").html($(".box-sf .Num").val()*($(".box-sf .loan_ceiling").val()))//总价
+//      console.log(CalDeedTax($(".box-sf .Num").val()*($(".box-sf .loan_ceiling").val()),0,0,$(".box-sf .Num").val()))
+        $(".detail2 .pay_more1").html(CalDeedTax($(".box-sf .Num").val()*($(".box-sf .loan_ceiling").val()),0,0,$(".box-sf .Num").val()))//契约
+        $(".detail2 .pay_more2").html($(".detail2 .total").html()/200000)//印花税
+        $(".detail2 .total_head").html($(".detail2 .total").html()*0.003)//公正费
+        $(".detail2 .total_dai").html($(".detail2 .total").html()*0.003) //委托办理手续费
+        $(".detail2 .pay_more").html($(".detail2 .total").html()*0.00025) //委托办理手续费
+        circle2($(".detail2 .total_head").html(),$(".detail2 .pay_more1").html(),$(".detail2 .total_dai").html(),$(".datail2 .pay_more").html(),5)//税费计算
+        /*  circle2(3000,15000,3000,250,100)*/
+        circle1($(".detail .total_head").html()*10000,$(".detail .total_dai").html()*10000,$(".detail .pay_more").html())//商业贷 公积金贷
+
+
+
+
+
+
+        //
+        var YearData=$(".box-zh .lv_cont").text()//年利率
+        var YearData1=$(".box-zh .lv_cont1").text()//年利率
+//      console.log($(".box-zh .Num").val())//商业贷款金额
+//      console.log($(".box-zh .loan_ceiling").val())//公积金贷款金额
+//      console.log($("#years2 option:checked").prop('value'))//贷款月数
+//      console.log(CalLoan(240,400000,0.00408,300000,0.00270833,1,2))
+        var month=$("#years2 option:checked").prop('value')*12//月数
+        var shadai=$(".box-zh .Num").val()*10000//商贷总额
+        var gongjiging=$(".box-zh .loan_ceiling").val()*10000//公积金贷总额
+        var data= YearData.substring(0,YearData.indexOf("%"))/(12*100)//商贷利率
+        var data1= YearData1.substring(0,YearData1.indexOf("%"))/(12*100)//公积金贷利率
+//      console.log(Number($(".box-zh .Num").val())+Number($(".box-zh .loan_ceiling").val()))//商业贷款金额
+//      console.log($(".box-zh .loan_ceiling").val())//公积金贷款金额
+        circle($(".detail1 .total_head").html(),$(".detail1 .total_dai").html())//图像
+
+        $(".detail1 .head1 span:nth-of-type(2)").css({"background":"#ffffff","color":"#00b1ff"})
+        CalLoan(month,shadai,data,gongjiging,data1,1,2)
+//      console.log( CalLoan(month,shadai,data,gongjiging,data1,1,2).MonthPayment)
+        $(".detail1 .total").html(parseInt(CalLoan(month,shadai,data,gongjiging,data1,1,2).ResultCount))//还款总额
+        $(".detail1 .total_head").html(Number($(".box-zh .Num").val()*10000)+Number($(".box-zh .loan_ceiling").val()*10000))
+        $(".detail1 .total_dai").html(parseInt(CalLoan(month,shadai,data,gongjiging,data1,1,2).Result))
+        $(".detail1 .pay_more").html(parseInt(CalLoan(month,shadai,data,gongjiging,data1,1,2).MonthPayment))
+        $(".detail1 .month-gei").html("￥"+$(".detail1 .pay_more").html())
+
+
+
+
+
+    })
+
+    $(".wrap1 li:nth-of-type(1)").tap(function(){//基准利率
+        $(".main").show()
+        $(".box").hide()
+        if(cans==1){
+            $(".lv_cont").html("4.90%")
+        }
+        if(cans==2){
+            $(".lv_cont").html("3.25%")
+        }
+
+    })
+    $(".wrap1 li:nth-of-type(2)").tap(function(){//7折
+        $(".main").show()
+        $(".box").hide()
+        if(cans==1){
+            $(".lv_cont").html("3.43%")
+        }
+        if(cans==2){
+            $(".lv_cont").html("2.27%")
+        }
+
+    })
+    $(".wrap1 li:nth-of-type(3)").tap(function(){//85折
+        $(".main").show()
+        $(".box").hide()
+        if(cans==1){
+            $(".lv_cont").html("4.17%")
+        }
+        if(cans==2){
+            $(".lv_cont").html("2.76%")
+        }
+    })
+    $(".wrap1 li:nth-of-type(4)").tap(function(){//88折
+        $(".main").show()
+        $(".box").hide()
+        if(cans==1){
+            $(".lv_cont").html("4.31%")
+        }
+        if(cans==2){
+            $(".lv_cont").html("2.86%")
+        }
+    })
+    $(".wrap1 li:nth-of-type(5)").tap(function(){//9折
+        $(".main").show()
+        $(".box").hide()
+        if(cans==1){
+            $(".lv_cont").html("4.41%")
+        }
+        if(cans==2){
+            $(".lv_cont").html("2.93%")
+        }
+    })
+    $(".wrap1 li:nth-of-type(6)").tap(function(){//95折
+        $(".main").show()
+        $(".box").hide()
+        if(cans==1){
+            $(".lv_cont").html("4.66%")
+        }
+        if(cans==2){
+            $(".lv_cont").html("3.09%")
+        }
+    })
+    $(".wrap1 li:nth-of-type(7)").tap(function(){//1.1折
+        $(".main").show()
+        $(".box").hide()
+        if(cans==1){
+            $(".lv_cont").html("5.39%")
+        }
+        if(cans==2){
+            $(".lv_cont").html("3.58%")
+        }
+    })
+    $(".wrap2 li:nth-of-type(1)").tap(function(){//1成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.1
+        $("#down_payment_cont").html("一成("+$(".Num").val()*0.1+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.1)
+
+        console.log(Num)
+    })
+    $(".wrap2 li:nth-of-type(2)").tap(function(){//2成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.2
+        $("#down_payment_cont").html("二成("+$(".Num").val()*0.2+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.2)
+    })
+    $(".wrap2 li:nth-of-type(3)").tap(function(){//3成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.3
+        $("#down_payment_cont").html("三成("+$(".Num").val()*0.3+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.3)
+    })
+    $(".wrap2 li:nth-of-type(4)").tap(function(){//4成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.4
+        $("#down_payment_cont").html("四成("+$(".Num").val()*0.4+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.4)
+    })
+    $(".wrap2 li:nth-of-type(5)").tap(function(){//5成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.5
+        $("#down_payment_cont").html("五成("+$(".Num").val()*0.5+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.5)
+    })
+    $(".wrap2 li:nth-of-type(6)").tap(function(){//6成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.6
+        $("#down_payment_cont").html("六成("+$(".Num").val()*0.6+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.6)
+    })
+    $(".wrap2 li:nth-of-type(7)").tap(function(){//7成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.7
+        $("#down_payment_cont").html("七成("+$(".Num").val()*0.7+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.7)
+    })
+    $(".wrap2 li:nth-of-type(8)").tap(function(){//8成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.8
+        $("#down_payment_cont").html("八成("+$(".Num").val()*0.8+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.8)
+    })
+    $(".wrap2 li:nth-of-type(9)").tap(function(){//9成
+        $(".main").show()
+        $(".box1").hide()
+        shou=$(".Num").val()*0.9
+        $("#down_payment_cont").html("九成("+$(".Num").val()*0.9+"万)")
+        $(".loan_ceiling").val($(".Num").val()-$(".Num").val()*0.9)
+    })
+    var cans=1
+    $(".wrap li:nth-of-type(1)").click(function(){
+        $(".lv_cont").html("4.90%")
+        cans=1
+    })
+    $(".wrap li:nth-of-type(2)").click(function(){
+        $(".lv_cont").html("3.25%")
+        cans=2
+    })
+
+
+
+    /*$(".box-ZH .wrap3 li").tap(function(){
+
+     $("#lv1").tap(function(){//利率被点击时候
+     $(".main").hide()
+     $(".box-ZH").show()
+     })
+     $("#lv2").tap(function(){//利率被点击时候
+     $(".main").hide()
+     $(".box-ZH").show()
+     })
+     })*/
+    var cans1=1
+    $("#lv1").tap(function(){//商业利率被点击
+        cans1=1
+        $(".main").hide()
+        $(".box-ZH").show()
+    })
+    $("#lv2").tap(function(){//公积金利率被点击时候
+        cans1=2
+        $(".main").hide()
+        $(".box-ZH").show()
+    })
+    $(".box-ZH .wrap3 li:nth-of-type(1)").tap(function(){//基准利率
+        $(".main").show()
+        $(".box-ZH").hide()
+        if(cans1==1){
+            $(".box-zh .lv_cont").html("4.90%")
+        }
+        if(cans1==2){
+            $(".box-zh .lv_cont1").html("3.25%")
+        }
+
+    })
+    $(".box-ZH .wrap3 li:nth-of-type(2)").tap(function(){//7折
+        $(".main").show()
+        $(".box-ZH").hide()
+        if(cans1==1){
+            $(".box-zh .lv_cont").html("3.43%")
+        }
+        if(cans1==2){
+            $(".box-zh .lv_cont1").html("2.27%")
+        }
+
+    })
+    $(".box-ZH .wrap3 li:nth-of-type(3)").tap(function(){//85折
+        $(".main").show()
+        $(".box-ZH").hide()
+        if(cans1==1){
+            $(".box-zh .lv_cont").html("4.17%")
+        }
+        if(cans1==2){
+            $(".box-zh .lv_cont1").html("2.76%")
+        }
+    })
+    $(".box-ZH .wrap3 li:nth-of-type(4)").tap(function(){//88折
+        $(".main").show()
+        $(".box-ZH").hide()
+        if(cans1==1){
+            $(".box-zh .lv_cont").html("4.31%")
+        }
+        if(cans1==2){
+            $(".box-zh .lv_cont1").html("2.86%")
+        }
+    })
+    $(".box-ZH .wrap3 li:nth-of-type(5)").tap(function(){//9折
+        $(".main").show()
+        $(".box-ZH").hide()
+        if(cans1==1){
+            $(".box-zh .lv_cont").html("4.41%")
+        }
+        if(cans1==2){
+            $(".box-zh .lv_cont1").html("2.93%")
+        }
+    })
+    $(".box-ZH .wrap3 li:nth-of-type(6)").tap(function(){//95折
+        $(".main").show()
+        $(".box-ZH").hide()
+        if(cans1==1){
+            $(".box-zh .lv_cont").html("4.66%")
+        }
+        if(cans1==2){
+            $(".box-zh .lv_cont1").html("3.09%")
+        }
+    })
+    $(".box-ZH .wrap3 li:nth-of-type(7)").tap(function(){//1.1折
+        $(".main").show()
+        $(".box-ZH").hide()
+        if(cans1==1){
+            $(".box-zh .lv_cont").html("5.39%")
+        }
+        if(cans1==2){
+            $(".box-zh .lv_cont1").html("3.58%")
+        }
+    })
+    //等额本金
+    function CalAverageCapitalComm(yearPeriad, money, monthInterest) {
+        /*商贷利息总额=（总期数(月)+1）* 本金 *(月利率)/2 */
+        var result = (yearPeriad + 1) * money * monthInterest / 2;
+        result = Math.abs(result.toFixed(2));
+
+        /*累计还款总额=利息+本金*/
+        var resultCount = parseFloat(result.toFixed(2)) + parseFloat(money);
+        resultCount = Math.abs(resultCount);
+
+        /*最高月供=(本金/总期数(月))+(本金-0)*月利息*/
+        var maxPayment = (money / yearPeriad) + (money - 0) * monthInterest;
+        maxPayment = Math.abs(maxPayment.toFixed(2));
+
+        /*最高利息=本金*(年利率/12)^1*/
+        var maxInterest = money * Math.pow(monthInterest, 1);
+        maxInterest = Math.abs(maxInterest.toFixed(2));
+
+        var houseLoan = {};
+        var houseLoanArray = new Array();
+        for (var i = 1; i <= yearPeriad; i++) {
+            var replyPrincipalIntreest = (i != 1 ? ((money - (money / yearPeriad) * (i - 1)) * monthInterest) + (money / yearPeriad) : maxPayment); //偿还本息
+            var replyInterest = (i != 1 ? ((money - (money / yearPeriad) * (i - 1)) * monthInterest) : maxInterest); //偿还利息
+            var replyPrincipal = money / yearPeriad; //偿还本金
+            var surplusPrincipal = money - (money / yearPeriad) * i; //剩余本金
+            houseLoan = { ReplyPrincipalIntreest: replyPrincipalIntreest, ReplyInterest: replyInterest, ReplyPrincipal: replyPrincipal, SurplusPrincipal: surplusPrincipal };
+            houseLoanArray.push(houseLoan);
+        }
+        var HouseLoanObject = {};
+        HouseLoanObject.Result = result;
+        HouseLoanObject.ResultCount = resultCount;
+        HouseLoanObject.MaxPayment = maxPayment;
+        HouseLoanObject.MaxInterest = maxInterest;
+        HouseLoanObject.HouseLoan = houseLoanArray;
+        return HouseLoanObject;
+    }
+    /*
+     * 动态饼状图开始*/
+//  console.log($(".detail1 .total_head").html())
+//  console.log($(".detail1 .total_dai").html())
+    circle(400000,300000)
+    function circle(value,value1){
+        var myChart = echarts.init(document.getElementById('circle'));
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{c} <br/>{b}: {c} ({d}%)"
+            },
+
+            legend: {
+                orient: 'vertical',
+                x: 'left'
+                /* data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']*/
+            },
+            color:['#6fbeff','#fed97e'],
+            series: [
+                {
+                    name:'',
+                    type:'pie',
+                    radius: ['50%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            show:false,
+                            textStyle: {
+                                fontSize: '12',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show:true
+                        }
+                    },
+                    data:[
+                        {value:value, name:'贷款总额'},
+                        {value:value1, name:'支付利息'},
+
+                    ]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    }
+    circle1(300000,700000,399467)
+    function circle1(value,value1,value2){
+        var myChart = echarts.init(document.getElementById('circle1'));
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{c} <br/>{b}: {c} ({d}%)"
+            },
+
+            legend: {
+                orient: 'vertical',
+                x: 'left'
+                /* data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']*/
+            },
+            color:['#6fbeff','#fed97e',"#ff6a9f"],
+            series: [
+                {
+                    name:'',
+                    type:'pie',
+                    radius: ['50%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            show:false,
+                            textStyle: {
+                                fontSize: '12',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show:true
+                        }
+                    },
+                    data:[
+                        {value:value, name:'首付金额'},
+                        {value:value1, name:'贷款总额'},
+                        {value:value2, name:'支付利息'}
+
+                    ]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    }
+    circle2(3000,15000,3000,250,100)
+    function circle2(value,value1,value2,value3,value4){
+        var myChart = echarts.init(document.getElementById('circle2'));
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{c} <br/>{b}: {c} ({d}%)"
+            },
+
+            legend: {
+                orient: 'vertical',
+                x: 'left'
+                /* data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']*/
+            },
+            color:['#6fc1fe','#b7eb92',"#ffd97b","#fac4c1","#e4809d"],
+            series: [
+                {
+                    name:'',
+                    type:'pie',
+                    radius: ['50%', '70%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            show:false,
+                            textStyle: {
+                                fontSize: '12',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show:true
+                        }
+                    },
+                    data:[
+                        {value:value, name:'公挣费'},
+                        {value:value1, name:'委托办理产权费'},
+                        {value:value2, name:'房屋买卖手续费'},
+                        {value:value3, name:'契税'},
+                        {value:value4, name:'印花税'}
+
+                    ]
+                }
+            ]
+        };
+        myChart.setOption(option);
+    }
+
+
+</script>
+</body>
+</html>
