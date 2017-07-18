@@ -1,19 +1,4 @@
-/**********************************��ҵ�������㲿��********************************************/
-/*
- �ۺϼ���
- */
-/*
- yearPeriad:������(��)[��ҵ���]
- money:����[��ҵ��� ��λԪ]
- monthInterest:����Ϣ[��ҵ��� ��ʽ:x.xxxxxx С������λ]
- money1:����[����� ��λԪ]
- monthInterest1:����Ϣ[����� ��ʽx.xxxxxx С������λ]
- typeInterest:��Ϣ����[0�ȶ��/1�ȶϢ]
- typeCal:��������[0��ҵ���/1�������/2��ϴ��]
- */
 
-/*console.log(data)
- console.log(data1)*/
 $(".detail1 .head1 span:nth-of-type(1)").tap(function(){
     $(".detail1 .jian").css({"display":"none"})
     $(".detail1 .p1").show()
@@ -73,13 +58,10 @@ $(".detail1 .head1 span:nth-of-type(2)").tap(function(){
     $(".detail1 .month-gei").html("��"+$(".detail1 .pay_more").html())
 })
 
-
-
 $(".detail1 .head1 span:nth-of-type(2)").tap(function(){
     $(this).css({"background":"#00b1ff","color":"#ffffff"})
     $(".detail1 .head1 span:nth-of-type(1)").css({"background":"#ffffff","color":"#00b1ff"})
 })
-
 
 function CalLoan(yearPeriad, money, monthInterest, money1, monthInterest1, typeInterest, typeCal) {
 
@@ -168,21 +150,7 @@ function CalLoan(yearPeriad, money, monthInterest, money1, monthInterest1, typeI
      */
     return HouseLoanObject;
 }
-/*���㹫ʽ=��������(��)+1��* ���� *(������)/2
- ������=������/12
- */
-/*
- ͨ�õȶ��������
- ��Ϣ�ܶ�=(������+1)*����*������/2
- �ۼƻ����ܶ�=����+��Ϣ�ܶ�
- ����¹�=������/������+������-0��*����Ϣ
- ����¸���Ϣ=����*����Ϣ^1
- */
-/*
- yearPeriad:������(��)
- money:����[Ԫ]
- monthInterest:������
- */
+
 function CalAverageCapitalComm(yearPeriad, money, monthInterest) {
     /*�̴���Ϣ�ܶ�=��������(��)+1��* ���� *(������)/2 */
     var result = (yearPeriad + 1) * money * monthInterest / 2;
@@ -218,7 +186,7 @@ function CalAverageCapitalComm(yearPeriad, money, monthInterest) {
     HouseLoanObject.HouseLoan = houseLoanArray;
     return HouseLoanObject;
 }
-/*���η�װ*/
+
 function CalAverageCapitalPlusInterestCommT(yearPeriad, money, monthInterest, money1, monthInterest1, typeInterest, typeCal) {
 
     var HouseLoanObject = CalLoan(yearPeriad, money, monthInterest, money1, monthInterest1, typeInterest, typeCal);
@@ -247,7 +215,7 @@ function CalAverageCapitalPlusInterestCommT(yearPeriad, money, monthInterest, mo
     }
     $("#tblResult tbody").append(strHtml);
 }
-/*���η�װ*/
+
 function CalAverageCapitalCommT(yearPeriad, money, monthInterest, money1, monthInterest1, typeInterest, typeCal) {
 
     var HouseLoanObject = CalLoan(yearPeriad, money, monthInterest, money1, monthInterest1, typeInterest, typeCal);
@@ -279,7 +247,7 @@ function CalAverageCapitalCommT(yearPeriad, money, monthInterest, money1, monthI
     }
     $("#tblResult tbody").append(strHtml);
 }
-/*��ҵ���ȶ�����*/
+
 function CalAverageCapitalBus() {
     var writeOrCommerical = $("#business_rate_select").val();
     var yearInterest = ""
@@ -297,7 +265,7 @@ function CalAverageCapitalBus() {
     CalAverageCapitalCommT(yearPeriad, money, monthInterest, 0, 0, 0, 0);
 
 }
-/*�������ȶ�����*/
+
 function CalAverageCapitalReserve() {
     var writeOrCommerical = $("#selPAFrate").val();
     var yearInterest = ""
@@ -315,19 +283,7 @@ function CalAverageCapitalReserve() {
 
     CalAverageCapitalCommT(yearPeriad, 0, 0, money, monthInterest, 0, 1);
 }
-/*
- ��ҵ���ȶϢ����ͨ�÷���
- ������Ϣ = ������*����Ϣ��*(1+����Ϣ)^�������)/((1+����Ϣ)^�������-1��
- ��Ϣ�ܶ� = ������Ϣ*������-����
- �ۼƻ����ܶ� = ������Ϣ * ������
- ÿ���¹�=������Ϣ
- ����¸���Ϣ=����*����Ϣ^1
- */
-/*
- yearPeriad:������(��)
- money:����
- monthInterest:������
- */
+
 function CalAverageCapitalPlusInterestComm(yearPeriad, money, monthInterest) {
     /*������Ϣ=(������*����Ϣ��*(1+����Ϣ)^�������)/((1+����Ϣ)^�������-1��*/
     var repleyInterest = (money * monthInterest * Math.pow(1 + monthInterest, yearPeriad)) / (Math.pow(1 + monthInterest, yearPeriad) - 1);
@@ -371,7 +327,6 @@ function CalAverageCapitalPlusInterestComm(yearPeriad, money, monthInterest) {
     return HouseLoanObject;
 }
 
-/*��ҵ���ȶϢ����*/
 function CalAverageCapitalPlusInterestBus() {
     var writeOrCommerical = $("#business_rate_select").val();
     var yearInterest = ""
@@ -389,7 +344,7 @@ function CalAverageCapitalPlusInterestBus() {
     CalAverageCapitalPlusInterestCommT(yearPeriad, money, monthInterest, 0, 0, 1, 0);
 
 }
-/*�������ȶϢ����*/
+
 function CalAverageCapitalPlusInterestReserve() {
     var writeOrCommerical = $("#selPAFrate").val();
     var yearInterest = ""
@@ -405,7 +360,7 @@ function CalAverageCapitalPlusInterestReserve() {
     var yearPeriad = $("#loan_period_select2").val() * 12;  //������
     CalAverageCapitalPlusInterestCommT(yearPeriad, 0, 0, money, monthInterest, 1, 1);
 }
-/*��ϼ���ȶ��*/
+
 function CalAverageCapitalGropReserve() {
     /*��ҵ�������*/
     var writeOrCommerical = $("#business_rate_select1").val();
@@ -437,7 +392,7 @@ function CalAverageCapitalGropReserve() {
     CalAverageCapitalCommT(yearPeriad, money, monthInterest, money1, monthInterest1, 0, 2);
 
 }
-/*��ϼ���ȶϢ*/
+
 function CalAverageCapitalGropInsterest() {
     /*��ҵ���*/
     var writeOrCommerical = $("#business_rate_select1").val();
@@ -468,7 +423,7 @@ function CalAverageCapitalGropInsterest() {
     CalAverageCapitalPlusInterestCommT(yearPeriad, money, monthInterest, money1, monthInterest1, 1, 2);
 
 }
-/*��ҵ����ֶ��������*/
+
 function ChangeWrite() {
     var writeValue = $("#business_rate_select").val();
     if (writeValue == -1) {
@@ -491,7 +446,7 @@ function ChangeWrite2() {
         $("#divWrite3").show();
     }
 }
-/*��ҵ��ͬ���޵����ۿ۴�����ʼ���*/
+
 function ChangeLoanPeriad() {
     $("#business_discount").get(0).selectedIndex = 0;
     var loadPeriad = $("#loan_period_select").val(); /*������� ��*/
@@ -676,14 +631,14 @@ function ChangeLoanPeriad1() {
     }
     $("#txtInterest2").val(interest);
 }
-/*��ҵ�����Ϣѡ��*/
+
 function ChangeBusinessRate() {
     ChangeLoanPeriad();
 }
 function ChangeBusinessRate1() {
     ChangeLoanPeriad1();
 }
-/*�������ʳ˼�*/
+
 function CalculateRide() {
     var interestNum = $("#txtInterest").val();
     var multipleNum = $("#business_discount").val();
@@ -722,7 +677,7 @@ function CalculateRide() {
             break;
     }
 }
-/*�������ʳ˼�*/
+
 function CalculateRide3() {
     var interestNum = $("#txtInterest2").val();
     var multipleNum = $("#business_discount3").val();
@@ -761,7 +716,7 @@ function CalculateRide3() {
             break;
     }
 }
-/*������ҵ�����Ϣ*/
+
 function CalculateValue() {
     var val=$('input:radio[name="repay_radio"]:checked').val();
     if (val == 1) {/*�ȶ��*/
@@ -771,7 +726,7 @@ function CalculateValue() {
         CalAverageCapitalPlusInterestBus();
     }
 }
-/*���㹫�������Ϣ*/
+
 function CalculateReserveValue() {
     var val = $('input:radio[name="repay_radio1"]:checked').val();
     if (val == 1) {/*�ȶ��*/
@@ -781,7 +736,7 @@ function CalculateReserveValue() {
         CalAverageCapitalPlusInterestReserve();
     }
 }
-/*������� ѡ���׼����*/
+
 function ChangePAFrate() {
     var writeValue = $("#selPAFrate").val();
     if (writeValue == -1) {
@@ -806,28 +761,7 @@ function ChangePAFrate1() {
     }
     ChangeLoanPeriod1();
 }
-/*�л�ѡ� �������*/
-/*$(function () {
- $('.easyui-tabs').tabs({
- border: false,
- onSelect: function (title) {
- $("#txtInterestCount").val("");
- $("#txtRepayment").val("");
- $("#txtMonthPayment").val("");
- $("#txtMonthMaxPayment").val("");
- $("#txtInterestResult").val("");
- $("#txtReservedFunds").val("");
- $("#tblResult tbody").empty();
- if (title == "��ϴ�����") {
- $("#trInterest").show();
- }
- else {
- $("#trInterest").hide();
- }
- }
- });
- });*/
-/*ѡ�񹫻������*/
+
 function ChangeLoanPeriod() {
     var loanPeriod = $("#loan_period_select2").val();
     var businessRate = $("#selPAFrate").val();
@@ -932,14 +866,14 @@ function ChangeLoanPeriod1() {
     }
     $("#txtInterest4").val(Math.abs(interest * discount));
 }
-/*�����ۿ�*/
+
 function CalculateRide1() {
     ChangeLoanPeriod();
 }
 function CalculateRide2() {
     ChangeLoanPeriod1();
 }
-/*��ϼ���*/
+
 function CalculateReserveAndBusValue() {
     var val = $('input:radio[name="repay_radio3"]:checked').val();
     if (val == 1) {/*�ȶ��*/

@@ -23,17 +23,13 @@
             -webkit-appearance: none;
         }
         select {
-            /*Chrome鍜孎irefox閲岄潰鐨勮竟妗嗘槸涓嶄竴鏍风殑锛屾墍浠ュ鍐欎簡涓€涓�*/
             border: solid 1px #000;
-            /*寰堝叧閿細灏嗛粯璁ょ殑select閫夋嫨妗嗘牱寮忔竻闄�*/
             appearance:none;
             -moz-appearance:none;
             -webkit-appearance:none;
-            /*鍦ㄩ€夋嫨妗嗙殑鏈€鍙充晶涓棿鏄剧ず灏忕澶村浘鐗�*/
             background: url("../img/down.png") no-repeat scroll right center transparent;
             background-size:0.26rem 0.16rem;
 			background-position: 94% 50%;
-            /*涓轰笅鎷夊皬绠ご鐣欏嚭涓€鐐逛綅缃紝閬垮厤琚枃瀛楄鐩�*/
             padding-right: 0.24rem;
         }
         .head{
@@ -62,17 +58,17 @@
             background:#fbfbfb;
         }
         .main nav .wrap{
-            height:0.8rem;]
-
+            height:0.8rem;
         }
         .main nav .wrap li{
             font-size:0.24rem;
             color:#858585;
-            line-height:0.6rem;
+            line-height:0.8rem;
             float:left;
             width:25%;
             text-align:center;
-
+            box-sizing: border-box;
+            margin-bottom: -1px;
         }
         .main .total_price{
             width:7.5rem;
@@ -114,7 +110,7 @@
             float:right;
             line-height:1rem;
             color:#000000;
-            font-weight:bold;
+            font-weight:bolder;
             margin-right:0.4rem;
         }
         .main .btn{
@@ -173,6 +169,7 @@
         }
         .big-Box{
             display:block;
+            margin-top: 1px;
         }
 		
         .box{
@@ -423,19 +420,17 @@
             line-height:0.6rem;
             text-align:center;
             font-size:0.28rem;
-
-
         }
         .detail .head1 span:nth-of-type(1){
             background:#00b1ff;
-            margin-top:0.025rem;
-            margin-left:0.01rem;
+            margin-top:0.030rem;
+            margin-left:0.03rem;
             color:#ffffff;
             border-radius: 0.5rem 0rem 0 0.5rem;
         }
         .detail .head1 span:nth-of-type(2){
-            margin-top:0.025rem;
-            margin-left:0.04rem;
+            margin-top:0.030rem;
+            margin-right:0.03rem;
             color:#00b1ff;
             border-radius: 0 0.5rem 0.5rem 0;
         }
@@ -445,6 +440,7 @@
             color:#bfc0c5;
             margin-left:1.8rem;
             margin-top:0.2rem;
+            text-align: center;
         }
         .detail .p2{
             width:3.85rem;
@@ -453,6 +449,7 @@
             margin-left:1.8rem;
             margin-top:0.2rem;
             display:none;
+            text-align: center;
         }
         .detail .month-pay{
             width:7.5rem;
@@ -679,6 +676,7 @@
             height:auto;
             background:#ffffff;
             display:none;
+            margin-top: 1px;
         }
       
         .detail .weizi{
@@ -748,5 +746,6 @@
         }
         .box-sf{
             display:none;
+            margin-top: 1px;
         }
 

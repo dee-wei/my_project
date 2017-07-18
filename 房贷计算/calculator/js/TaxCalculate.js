@@ -1,6 +1,4 @@
-
-CalDues(1000000,0,0,100,1,0,1,10)
-//console.log(CalDues(1000000,0,0,100,1,0,1,10))
+CalDues(1000000,0,0,100,1,0,1,10);
 function CalDues(sumPrice, houseType, onlyBuy, areaHouse, isFiveYear, valSellHouse, levyWay, castPrice) {
 
     /*������˰*/
@@ -21,7 +19,7 @@ function CalDues(sumPrice, houseType, onlyBuy, areaHouse, isFiveYear, valSellHou
     taxesObj = { DeedTax: deedTax, BusTax: busTax, IncomeTax: incomeTax, SumPrice: sumPrice };
     return taxesObj;
 }
-/*���㷿���ܼ�*/
+
 function CalSumHouse() {
     var area = $("#txtArea").val();
     var unitPrice = $("#txtUnitPrice").val();
@@ -37,15 +35,8 @@ function CalSumHouse() {
     }
 }
 
-/*������˰*/
-/*
- sumPice:���ݼ۸�[Ԫ]
- houseType:0��ͨסլ/1����ͨס��
- onlyBuy:�򷿼�ͥΨһסլ[0��/1��]
- areaHouse:�������[ƽ����]
- */
-CalDeedTax(1000000,0,0,100)
-//console.log(CalDeedTax($(".box-sf .Num").val()*($(".box-sf .loan_ceiling").val()),0,0,$(".box-sf .Num").val()))
+CalDeedTax(1000000,0,0,100);
+
 function CalDeedTax(sumPrice, houseType, onlyBuy, areaHouse) {
     var deedTax = 0;
     if (houseType == "0") {/*��ͨסլ*/
@@ -67,13 +58,7 @@ function CalDeedTax(sumPrice, houseType, onlyBuy, areaHouse) {
     return deedTax;
 }
 
-/*
- sumPrice�������ܼ�[Ԫ]
- houseType:0��ͨסլ/1����ͨסլ
- IsFiveYear:05��/1����5��
- casePrice������ԭ��[Ԫ]
- */
-/*Ӫҵ˰����*/
+
 function DoBusTax(sumPrice, houseType, IsFiveYear,castPrice) {
     var busTax = 0;
 
@@ -96,17 +81,7 @@ function DoBusTax(sumPrice, houseType, IsFiveYear,castPrice) {
     return Math.abs(busTax.toFixed(2));
 }
 
-/*
- sumPrice:�ܼ�[Ԫ]
- valYear:�������Ƿ���5��[0��/1��]
- valSelHouse:�Ƿ�������ͥΨһס��[0��/1��]
- levyWay:������ʽ �ܼ�/���[0��/1��]
- houseType:�������� ��ͨ/����ͨ[0��/1��]
- castPrice: ԭ��[Ԫ]
- */
-/*�������˰����*/
-function CalIncomeTaxPerson(sumPrice, valYear, valSellHouse, levyWay, houseType,castPrice)
-{
+function CalIncomeTaxPerson(sumPrice, valYear, valSellHouse, levyWay, houseType,castPrice) {
     var incomeTax = 0;
     if (valYear == 0 && valSellHouse == 0) {
         return Math.abs(incomeTax.toFixed(2));
@@ -126,8 +101,7 @@ function CalIncomeTaxPerson(sumPrice, valYear, valSellHouse, levyWay, houseType,
     return Math.abs(incomeTax.toFixed(2));
 }
 
-function ChangeLevyWay()
-{
+function ChangeLevyWay(){
     if($("#selLevyWay").val()==0)
     {
         $("#trCasePrice").hide();
@@ -137,7 +111,7 @@ function ChangeLevyWay()
         $("#trCasePrice").show();
     }
 }
-/*�ܼ���*/
+
 function CalHouseTax() {
     if ($("#selLevyWay").val() == 1 && $.trim($("#txtCastPrice").val()).length <= 0) {
         alert("�����뷿��ԭ��!");
